@@ -19,11 +19,12 @@ class MyApp extends StatelessWidget {
       theme:
           ThemeData(primarySwatch: Colors.green, brightness: Brightness.light),
       home: AnimatedSplashScreen(
-          splash: CupertinoIcons.cube_box,
-          splashIconSize: 80,
-          backgroundColor: Colors.blue,
-          splashTransition: SplashTransition.rotationTransition,
-          nextScreen: mainscreen()),
+        splash: CupertinoIcons.cube_box,
+        splashIconSize: 80,
+        backgroundColor: Colors.blue,
+        splashTransition: SplashTransition.rotationTransition,
+        nextScreen: mainscreen(),
+      ),
     );
   }
 }

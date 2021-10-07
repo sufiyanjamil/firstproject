@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
@@ -15,10 +17,12 @@ class mainscreen extends StatefulWidget {
 }
 
 class _mainscreenState extends State<mainscreen> {
+  bool _isObscure = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
+        // ignore: unnecessary_new
         child: new Column(
           children: [
             Container(
@@ -34,12 +38,13 @@ class _mainscreenState extends State<mainscreen> {
               child: TextField(
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.email),
                   labelText: 'Email',
                   hintText: 'test123@gmail.com',
                   filled: true,
                   enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.blue),
-                      borderRadius: BorderRadius.all(Radius.circular(20))),
+                      borderRadius: BorderRadius.all(Radius.circular(30))),
                 ),
               ),
             ),
@@ -49,22 +54,33 @@ class _mainscreenState extends State<mainscreen> {
                 keyboardType: TextInputType.visiblePassword,
                 obscureText: true,
                 decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.lock),
                   labelText: 'Password',
                   hintText: 'Enter a Password',
                   filled: true,
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      _isObscure ? Icons.visibility : Icons.visibility_off,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        _isObscure = !_isObscure;
+                      });
+                    },
+                  ),
                   enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.blue),
-                      borderRadius: BorderRadius.all(Radius.circular(20))),
+                      borderRadius: BorderRadius.all(Radius.circular(30))),
                 ),
               ),
             ),
             Column(
-              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 SizedBox(
                   height: 15,
                   width: 50,
                 ),
+                // ignore: unnecessary_new
                 new MaterialButton(
                   onPressed: () {},
                   child: Text(
